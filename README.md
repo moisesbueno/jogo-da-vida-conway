@@ -11,4 +11,5 @@ comando de compilação
 
 g++ -o game JogoDaVida.cpp -std=c++0x -lOpenCL
 
+![Nesta parte é informada o número de iterações](tela1.png "Jogo da vida")
 
