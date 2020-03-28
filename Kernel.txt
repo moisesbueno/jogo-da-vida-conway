@@ -1,0 +1,22 @@
+__kernel void life(                                                     
+   constant bool*input,                                                 
+   global bool* output,                                                 
+   const unsigned int height,                                           
+   const unsigned int width)                                            
+{                                                                       
+   int i = get_global_id(0);                                            
+   int rowUp = i - width;                                               
+   int rowDown = i + width;                                             
+   bool outOfBounds = (i < width);                                      
+   outOfBounds |= (i > (width * (height-1)));                           
+   outOfBounds |= (i % width == 0);                                     
+   outOfBounds |= (i % width == width-1);                               
+   if (outOfBounds) { output[i] = false; return; }                      
+   int neighbours = input[rowUp-1] + input[rowUp] + input[rowUp+1];     
+   neighbours += input[i-1] + input[i+1];                               
+   neighbours += input[rowDown-1] + input[rowDown] + input[rowDown+1];  
+   if (neighbours == 3 || (input[i] && neighbours == 2))                
+       output[i] = true;                                                
+   else                                                                 
+       output[i] = false;                                               
+}            
