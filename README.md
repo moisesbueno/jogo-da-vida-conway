@@ -7,13 +7,13 @@ caso seja nVidia baixar o nVidia Cuda e assim por diante,
 
 **Requisitos**
 
-[Biblioteca pnm](https://github.com/ToruNiina/pnm)
+[Biblioteca pnm](https://github.com/ToruNiina/pnm)\
+
 [NVIDIA Cuda](https://developer.nvidia.com/cuda-downloads)
 
 é mais simples a configuração e utilização no ambiente Linux
 
-comando de compilação
-
+**comando de compilação**
 g++ -o game JogoDaVida.cpp -std=c++0x -lOpenCL
 
 Nesta parte informamos o número de interações que o código vai rodar
